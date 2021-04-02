@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Page
+{% endblock %}
+
+{% block content %}
+	<h1>Create New Task</h1>
+
+	<form method="POST" action="{% url 'create' %}">
+	{% csrf_token %}
+		<table>
+		{{ fm.as_table }}
+
+		</table>
+
+		<input type="submit" class="btn btn-warning mt-2" value="Save">
+	</form>
+  	{{ msg }}		
+{% endblock %}

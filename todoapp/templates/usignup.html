@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sign Up Page
+{% endblock %}
+
+{% block content %}
+	<h1>Sign Up</h1>
+
+	<form method="POST" action="{% url 'usignup' %}">
+	{% csrf_token %}
+		<input type="text" class="form-control w-50" name="un" placeholder="Enter Username" required>
+		<br>
+		 <input type="email" class="form-control w-50" name="em" placeholder="Enter Email" required>
+		<br>
+		<input type="submit" class="btn btn-warning" value="Sign Up">
+		<br><br>
+	</form>
+	{{ msg }}
+{% endblock %}

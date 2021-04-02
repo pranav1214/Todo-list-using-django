@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title> {% block title %} {% endblock %} </title>
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+	<center>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+    data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'home' %}">To Do Project</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+	{% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'create' %}"><b>Create Task</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}"><b>View All Tasks</b></a>
+    </li>
+    <li class="nav-item pull-right">
+        <a class="nav-link" href="{% url 'ulogout' %}"><b>Logout</b></a>
+    </li>
+	{% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'usignup' %}"><b>Sign Up</b></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'ulogin' %}"><b>Login</b></a>
+    </li>
+		{% endif %}
+    </ul>
+  </div>
+</nav>
+	<div>
+	{% block content %} {% endblock %}
+	</div>
+	</center>
+
+<footer class="bg-dark text-center text-white w-100 p-3" style="position:fixed; bottom:0;">
+  <!-- Grid container -->
+
+
+          <!--Grid column-->
+          <div class="col-auto">
+            <p class="pt-2">
+              <strong>Made with ❤ by Pranav</strong>
+            </p>
+          </div>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright:
+    <a class="text-white" href="https://www.instagram.com/kamalclassmumbai/?hl=en" target=_blank>KAMAL CLASSES</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+</html>
